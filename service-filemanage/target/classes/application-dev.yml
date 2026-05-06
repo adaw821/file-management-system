@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+parameters:
+#  redis-host: 192.168.102.212
+  datasource-url: jdbc:mysql://192.168.102.212:3306/spring_dev_tablepet?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+  datasource-username: spring_test
+  datasource-password: ENC(gZIdx8pGaCuB/DLZwQjWC2JQ121XFATi)
+  file-upload-path: /opt/projects/tablepet/upload
+  dify-url: http://10.246.84.220/v1
+  dify-search-key: app-Y7PT3KupxsEtTGg24LmOWt35
+  dify-category-key: app-gyDCbeVbPBTtoRuK8QrdkHKk
+  dify-chat-key: app-SPJCilRU4o3lI5FofWGzWyka

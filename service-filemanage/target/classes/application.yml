@@ -1,0 +1,56 @@
+server:
+  port: 6018
+  address: 0.0.0.0
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: local
+  application:
+    name: service-tablepet
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#  redis:
+#    database: 0
+#    host: ${parameters.redis-host}
+#    port: 6379
+#    timeout: 10000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    url: ${parameters.datasource-url}
+    username: ${parameters.datasource-username}
+    password: ${parameters.datasource-password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  spring:
+    session:
+      store-type: none
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    call-setters-on-nulls: true
+
+jasypt:
+  encryptor:
+    password: corpsdo
+
+ark:
+  api-key: d84eeb79-285b-4345-87a9-56c36fd52b57
+
+difyParam:
+  dify-url: ${parameters.dify-url}
+  dify-search-key: ${parameters.dify-search-key}
+  dify-category-key: ${parameters.dify-category-key}
+  dify-chat-key: ${parameters.dify-chat-key}

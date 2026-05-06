@@ -1,0 +1,57 @@
+server:
+  port: 6018
+
+spring:
+  # 激活的配置文件
+  profiles:
+    active: local
+
+  # 应用名称
+  application:
+    name: file-manage
+
+  # 文件上传大小
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+
+  # Spring MVC
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  # Jackson JSON配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # 数据源配置（使用具体值，不要用占位符）
+  datasource:
+    url: jdbc:mysql://localhost:3306/filemanage?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 041294oshH # 改成你的密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+
+  # JPA配置（必须添加！）
+  jpa:
+    show-sql: true      # 显示SQL
+    properties:
+      hibernate:
+        format_sql: true  # 格式化SQL
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false  # 避免性能问题
+
+  # Session配置
+  session:
+    store-type: none  # 不使用Redis存session
+
+# MyBatis配置（如果不用就删掉）
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    call-setters-on-nulls: true
+
